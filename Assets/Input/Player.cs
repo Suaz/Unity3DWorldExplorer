@@ -53,6 +53,15 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Throw"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c0c2209-3e59-4165-81af-8d6e2306f598"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -165,6 +174,17 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""842eee85-924a-482e-9f94-944778a65d22"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -204,6 +224,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerController_MoveXAxis = m_PlayerController.FindAction("MoveXAxis", throwIfNotFound: true);
         m_PlayerController_MoveZAxis = m_PlayerController.FindAction("MoveZAxis", throwIfNotFound: true);
         m_PlayerController_Jump = m_PlayerController.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerController_Throw = m_PlayerController.FindAction("Throw", throwIfNotFound: true);
         // SceneController
         m_SceneController = asset.FindActionMap("SceneController", throwIfNotFound: true);
         m_SceneController_Action1 = m_SceneController.FindAction("Action1", throwIfNotFound: true);
@@ -269,6 +290,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerController_MoveXAxis;
     private readonly InputAction m_PlayerController_MoveZAxis;
     private readonly InputAction m_PlayerController_Jump;
+    private readonly InputAction m_PlayerController_Throw;
     public struct PlayerControllerActions
     {
         private @Player m_Wrapper;
@@ -276,6 +298,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
         public InputAction @MoveXAxis => m_Wrapper.m_PlayerController_MoveXAxis;
         public InputAction @MoveZAxis => m_Wrapper.m_PlayerController_MoveZAxis;
         public InputAction @Jump => m_Wrapper.m_PlayerController_Jump;
+        public InputAction @Throw => m_Wrapper.m_PlayerController_Throw;
         public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,6 +317,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnJump;
+                @Throw.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnThrow;
+                @Throw.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnThrow;
+                @Throw.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnThrow;
             }
             m_Wrapper.m_PlayerControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -307,6 +333,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Throw.started += instance.OnThrow;
+                @Throw.performed += instance.OnThrow;
+                @Throw.canceled += instance.OnThrow;
             }
         }
     }
@@ -349,6 +378,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
         void OnMoveXAxis(InputAction.CallbackContext context);
         void OnMoveZAxis(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnThrow(InputAction.CallbackContext context);
     }
     public interface ISceneControllerActions
     {

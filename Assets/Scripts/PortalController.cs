@@ -6,6 +6,7 @@ public class PortalController : MonoBehaviour
 {
     [SerializeField] public Transform spawnPoint;
     [SerializeField] private PortalController Destination;
+   
 
     private Player playerInput;
     private Player.SceneControllerActions sceneControllerActions;
@@ -24,7 +25,6 @@ public class PortalController : MonoBehaviour
     void Update()
     {
         isActionPressed = sceneControllerActions.Action1.ReadValue<float>();
-        Debug.Log(isActionPressed);
     }
 
     private void OnTriggerStay(Collider other)
@@ -32,7 +32,6 @@ public class PortalController : MonoBehaviour
         
         if (isActionPressed > 0)
         {
-            Debug.Log("Transporting");
             other.gameObject.transform.position = Destination.spawnPoint.position;
         }
     }
@@ -40,5 +39,7 @@ public class PortalController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
     }
+
+
 
 }

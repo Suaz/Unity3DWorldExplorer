@@ -10,6 +10,14 @@ public class Coin : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameController.Instance.AddStar();
+            Destroy(this.gameObject);
+        }
+    }
 
     // Update is called once per frame
     void Update()

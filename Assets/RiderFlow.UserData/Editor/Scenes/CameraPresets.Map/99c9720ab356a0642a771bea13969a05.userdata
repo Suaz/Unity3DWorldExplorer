@@ -1,0 +1,28 @@
+{
+  "4880501a8da6040f78724e965b63af61": {
+    "sceneGuid": "99c9720ab356a0642a771bea13969a05",
+    "uniqueCameraId": "4880501a8da6040f78724e965b63af61",
+    "name": "Waterfall",
+    "pointX": 32.3336754,
+    "pointY": -5.5306735,
+    "pointZ": 16.62288,
+    "directionX": -0.158325732,
+    "directionY": 0.008583887,
+    "directionZ": -0.00137379416,
+    "directionW": -0.987351835,
+    "zoom": 12.8223867
+  },
+  "7d4b5b4414fc44221ac44dd3c5a40568": {
+    "sceneGuid": "99c9720ab356a0642a771bea13969a05",
+    "uniqueCameraId": "7d4b5b4414fc44221ac44dd3c5a40568",
+    "name": "boss",
+    "pointX": 54.11878,
+    "pointY": 44.7043,
+    "pointZ": 63.815197,
+    "directionX": -0.1715753,
+    "directionY": -0.0283749439,
+    "directionZ": 0.00494647026,
+    "directionW": -0.984752953,
+    "zoom": 12.8223867
+  }
+}

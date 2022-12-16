@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5626897038731166630
+--- !u!114 &-5532544527389539369
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27,7 +27,7 @@ Material:
   - _EMISSION
   - _METALLICGLOSSMAP
   - _SPECGLOSSMAP
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
